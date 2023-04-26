@@ -30,13 +30,7 @@ end
 N=10;                              % number of nodes
 DELTA_x=L/(N);                   % distance between adjacent nodes
 x=0:DELTA_x:L;                   % position of each node
-%criteria
-DELTA_t_crit_N = DELTA_x*rho*cp/(2*(lambda/DELTA_x+alpha));
-if DELTA_t > DELTA_t_crit_N
-    disp(' ')
-    disp('Time step exeeds the limit');
-    return
-end
+
 
 %Initial wall temperatures T(i,1)
 for i=1:N+1
@@ -50,7 +44,7 @@ for j=1:(M-1)
            T(i,j+1)=T(i,j)+lambda*(T(i-1,j)+T(i+1,j)-2*T(i,j))*DELTA_t/(rho*cp*DELTA_x^2);
       endfor
       end
-%plot
+      %plot
 plot(time,T)
 xlabel 'time'
 ylabel 'temperature'
@@ -59,5 +53,4 @@ figure
 plot(x,T)
 xlabel 'position';
 ylabel 'temperature'
-
 
