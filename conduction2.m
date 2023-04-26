@@ -1,4 +1,9 @@
 %20BME091
+%20BME090
+%20BME092
+
+%1D unsteady heat conduction problem
+%20BME091
 %Manit Shah
 %1D unsteady heat conduction problem
 clc
@@ -57,8 +62,4 @@ plot(x,T)
 xlabel 'position';
 ylabel 'temperature'
 
-figure
-g=T(:,M);
-plot(x,g)
-xlabel 'position'
-ylabel 'temperature WRT time step'
+
