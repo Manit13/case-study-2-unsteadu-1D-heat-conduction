@@ -48,10 +48,8 @@ for j=1:(M-1)
     T(1,j+1)=T(1,j)+2*lambda*(T(2,j)-T(1,j))*DELTA_t/(rho*cp*DELTA_x^2);
       for i=2:(N)
            T(i,j+1)=T(i,j)+lambda*(T(i-1,j)+T(i+1,j)-2*T(i,j))*DELTA_t/(rho*cp*DELTA_x^2);
+      endfor
       end
-      % Heat flux condition(q=n*(-k*dT/dx))[W/m^2] + heat transfer coefficient(hout*(Tfin-T))[W/(m^2*K]
-      T(N+1,j+1)=T(N,j)+(2*lambda*(T(N-1,j)-T(N,j))/(rho*cp*DELTA_x^2)+2*alpha*(t_fin-T(N,j))/(rho*cp*DELTA_x))*DELTA_t;
-end
 %plot
 plot(time,T)
 xlabel 'time'
